@@ -103,6 +103,19 @@
             padding: 25px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            position: relative;
+        }
+        
+        .side-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
         }
         
         .side-nav-logo {
@@ -131,6 +144,7 @@
         
         .side-nav-menu li {
             margin-bottom: 5px;
+            position: relative;
         }
         
         .side-nav-menu a {
@@ -568,6 +582,18 @@
             color: var(--cream);
         }
         
+        /* Navigation Indicator Line */
+        .nav-indicator {
+            position: fixed;
+            left: 280px;
+            top: 0;
+            height: 100vh;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-brown), var(--light-brown));
+            z-index: 800;
+            transition: all 0.3s ease;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .side-nav {
@@ -576,6 +602,10 @@
             
             .main-content {
                 margin-left: 250px;
+            }
+            
+            .nav-indicator {
+                left: 250px;
             }
             
             .hero h1 {
@@ -596,8 +626,16 @@
                 transform: translateX(0);
             }
             
+            .side-nav-close {
+                display: block;
+            }
+            
             .main-content {
                 margin-left: 0;
+            }
+            
+            .nav-indicator {
+                display: none;
             }
             
             .mobile-nav-toggle {
@@ -661,9 +699,15 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Indicator Line -->
+    <div class="nav-indicator"></div>
+
     <!-- Left Side Navigation -->
     <nav class="side-nav" id="sideNav">
         <div class="side-nav-header">
+            <button class="side-nav-close" id="sideNavClose">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="side-nav-logo">
                 <i class="fas fa-graduation-cap"></i>
                 AIOU Assignments
@@ -971,12 +1015,14 @@
         // Mobile Navigation Toggle
         const mobileNavToggle = document.getElementById('mobileNavToggle');
         const sideNav = document.getElementById('sideNav');
+        const sideNavClose = document.getElementById('sideNavClose');
         
         function toggleSideNav() {
             sideNav.classList.toggle('active');
         }
         
         mobileNavToggle.addEventListener('click', toggleSideNav);
+        sideNavClose.addEventListener('click', toggleSideNav);
         
         // Close side nav when clicking on a link (mobile)
         const sideNavLinks = document.querySelectorAll('.side-nav-menu a');
