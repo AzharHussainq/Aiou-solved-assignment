@@ -40,7 +40,8 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+92-355-8137077",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "email": "azarhussin44@gmail.com"
       }
     }
     </script>
@@ -73,6 +74,7 @@
             background-color: var(--light-gray);
             color: var(--text-dark);
             line-height: 1.6;
+            display: flex;
         }
         
         .container {
@@ -82,7 +84,122 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Left Side Navigation */
+        .side-nav {
+            width: 280px;
+            background: linear-gradient(180deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            color: var(--white);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .side-nav-header {
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .side-nav-logo {
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .side-nav-logo i {
+            margin-right: 10px;
+            font-size: 26px;
+        }
+        
+        .side-nav-tagline {
+            font-size: 14px;
+            color: var(--cream);
+        }
+        
+        .side-nav-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+        
+        .side-nav-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .side-nav-menu a {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .side-nav-menu a:hover, .side-nav-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--cream);
+        }
+        
+        .side-nav-menu i {
+            margin-right: 12px;
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .side-nav-contact {
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .side-nav-contact h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--cream);
+        }
+        
+        .side-nav-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .side-nav-contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .side-nav-contact-item i {
+            margin-right: 10px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .side-nav-contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
             color: var(--white);
@@ -90,7 +207,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 900;
         }
         
         .header-content {
@@ -99,53 +216,6 @@
             align-items: center;
         }
         
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            font-size: 28px;
-        }
-        
-        /* Desktop Navigation */
-        .desktop-nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        .desktop-nav ul li {
-            margin-left: 25px;
-        }
-        
-        .desktop-nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 5px 0;
-            position: relative;
-        }
-        
-        .desktop-nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--cream);
-            transition: width 0.3s ease;
-        }
-        
-        .desktop-nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile Navigation */
         .mobile-nav-toggle {
             display: none;
             background: none;
@@ -155,73 +225,9 @@
             cursor: pointer;
         }
         
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
-            z-index: 1001;
-            transition: all 0.4s ease;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            padding: 80px 20px 20px;
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            right: 0;
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-        }
-        
-        .mobile-nav ul li {
-            margin-bottom: 15px;
-        }
-        
-        .mobile-nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 18px;
-            display: block;
-            padding: 12px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .mobile-nav-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--white);
+        .page-title {
             font-size: 24px;
-            cursor: pointer;
-        }
-        
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-        
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
+            font-weight: 600;
         }
         
         /* Breadcrumb */
@@ -271,7 +277,7 @@
         }
         
         /* Main Content */
-        .main-content {
+        .content-area {
             padding: 40px 0;
         }
         
@@ -403,6 +409,12 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             min-width: 250px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .contact-icon {
@@ -558,6 +570,14 @@
         
         /* Responsive Styles */
         @media (max-width: 992px) {
+            .side-nav {
+                width: 250px;
+            }
+            
+            .main-content {
+                margin-left: 250px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -568,8 +588,16 @@
         }
         
         @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
+            .side-nav {
+                transform: translateX(-100%);
+            }
+            
+            .side-nav.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
             }
             
             .mobile-nav-toggle {
@@ -581,8 +609,8 @@
                 text-align: center;
             }
             
-            .logo {
-                margin-bottom: 10px;
+            .page-title {
+                margin: 10px 0;
             }
             
             .hero {
@@ -633,335 +661,331 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-graduation-cap"></i>
-                    AIOU Solved Assignments
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <nav class="desktop-nav">
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#categories">Assignment Categories</a></li>
-                        <li><a href="#about">About AIOU</a></li>
-                        <li><a href="#how-to">How to Submit</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms & Conditions</a></li>
-                    </ul>
-                </nav>
-                
-                <!-- Mobile Navigation Toggle -->
-                <button class="mobile-nav-toggle" id="mobileNavToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <!-- Left Side Navigation -->
+    <nav class="side-nav" id="sideNav">
+        <div class="side-nav-header">
+            <div class="side-nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                AIOU Assignments
             </div>
+            <div class="side-nav-tagline">Your Educational Resource</div>
         </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#categories">Assignment Categories</a></li>
-            <li><a href="#about">About AIOU</a></li>
-            <li><a href="#how-to">How to Submit</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#terms">Terms & Conditions</a></li>
+        
+        <ul class="side-nav-menu">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#categories"><i class="fas fa-book"></i> Assignment Categories</a></li>
+            <li><a href="#about"><i class="fas fa-university"></i> About AIOU</a></li>
+            <li><a href="#how-to"><i class="fas fa-pen-alt"></i> How to Submit</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i> Contact Us</a></li>
+            <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+            <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
         </ul>
+        
+        <div class="side-nav-contact">
+            <h3>Contact Support</h3>
+            <div class="side-nav-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/923558137077" target="_blank">+92 355 8137077</a>
+            </div>
+            <div class="side-nav-contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:azarhussin44@gmail.com">azarhussin44@gmail.com</a>
+            </div>
+            <div class="side-nav-contact-item">
+                <i class="fas fa-clock"></i>
+                <span>Mon - Fri: 9AM - 6PM</span>
+            </div>
+        </div>
     </nav>
-    
-    <!-- Overlay for Mobile Navigation -->
-    <div class="overlay" id="overlay"></div>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <a href="#home">Home</a> > <span>AIOU Solved Assignments 2025</span>
+    <!-- Main Content Area -->
+    <div class="main-content" id="mainContent">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <button class="mobile-nav-toggle" id="mobileNavToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">AIOU Solved Assignments 2025</div>
+                    <div></div> <!-- Empty div for flex alignment -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <a href="#home">Home</a> > <span>AIOU Solved Assignments 2025</span>
+            </div>
         </div>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>AIOU Solved Assignments 2025 - Autumn & Spring</h1>
+                <p>Download free AIOU solved assignments for all programs. Get assignment solutions, past papers, and assignment covering forms for Matric, FA, BA, B.Com, B.Ed, BS, MA, MSc programs.</p>
+                <div class="hero-btns">
+                    <a href="#categories" class="btn">Download Assignments</a>
+                    <a href="https://wa.me/923558137077" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <div class="container">
+                <!-- Assignment Categories -->
+                <section id="categories">
+                    <h2 class="section-title">AIOU Assignment Categories</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>Matric (SSC)</h3>
+                                <p>Download solved assignments for Matriculation programs including all subjects and courses.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>FA / FSc</h3>
+                                <p>Get solved assignments for FA (Faculty of Arts) and FSc (Faculty of Science) programs.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>BA / BSc</h3>
+                                <p>Download solved assignments for BA (Bachelor of Arts) and BSc (Bachelor of Science) programs.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>B.Ed Programs</h3>
+                                <p>Get solved assignments for B.Ed (Bachelor of Education) programs with complete solutions.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>BS Programs</h3>
+                                <p>Download solved assignments for BS (Bachelor of Studies) programs in various disciplines.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-business-time"></i>
+                            </div>
+                            <div class="category-content">
+                                <h3>BBA / B.Com</h3>
+                                <p>Get solved assignments for BBA (Business Administration) and B.Com (Commerce) programs.</p>
+                                <a href="#" class="btn">Download Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- About AIOU Section -->
+                <section class="content-section" id="about">
+                    <h2>About Allama Iqbal Open University (AIOU)</h2>
+                    <p>Allama Iqbal Open University (AIOU) is the first open university in Asia and the second in the world, established in 1974. It provides education to all segments of society, especially those who cannot attend traditional universities due to various constraints.</p>
+                    
+                    <h3>Why AIOU is Popular Among Students</h3>
+                    <p>AIOU has become one of the largest universities in Pakistan with over 1.3 million students enrolled in various programs. The university offers:</p>
+                    <ul>
+                        <li>Flexible learning options for working professionals</li>
+                        <li>Affordable education for all income groups</li>
+                        <li>Nationwide access through regional campuses</li>
+                        <li>Diverse programs from Matric to PhD levels</li>
+                        <li>Distance learning methodology</li>
+                    </ul>
+                    
+                    <h3>AIOU Assignment System</h3>
+                    <p>Assignments are a crucial part of AIOU's evaluation system, carrying 30% weightage in the final result. Students must submit assignments before the deadline to be eligible for final exams.</p>
+                </section>
+                
+                <!-- How to Submit Section -->
+                <section class="content-section" id="how-to">
+                    <h2>How to Submit AIOU Assignments</h2>
+                    <p>Submitting assignments correctly is essential for AIOU students. Follow these steps to ensure your assignments are accepted:</p>
+                    
+                    <h3>Step-by-Step Submission Process</h3>
+                    <ol>
+                        <li><strong>Download Assignment Questions:</strong> First, download the assignment questions from the AIOU website or your course books.</li>
+                        <li><strong>Prepare Your Solutions:</strong> Use our solved assignments as a reference to create your own unique solutions.</li>
+                        <li><strong>Use Assignment Covering Form:</strong> Download and fill out the official AIOU assignment covering form with your personal and course details.</li>
+                        <li><strong>Submit Before Deadline:</strong> Submit your assignments to your respective AIOU regional center before the deadline.</li>
+                        <li><strong>Keep a Copy:</strong> Always keep a copy of your submitted assignments for future reference.</li>
+                    </ol>
+                    
+                    <h3>Important Points to Remember</h3>
+                    <ul>
+                        <li>Assignments must be handwritten (unless specified otherwise)</li>
+                        <li>Use A4 size paper for all assignments</li>
+                        <li>Write your name, roll number, and course code on each assignment</li>
+                        <li>Submit assignments in person or through registered mail</li>
+                        <li>Late submissions may not be accepted</li>
+                    </ul>
+                </section>
+                
+                <!-- Contact Section -->
+                <section class="contact-section" id="contact">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="text-center">Need help with your AIOU assignments? Contact our support team for assistance.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/923558137077" target="_blank">+92 355 8137077</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:azarhussin44@gmail.com">azarhussin44@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Working Hours</h4>
+                                <p>Mon - Fri: 9AM - 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Policy Sections -->
+                <div class="policy-sections">
+                    <div class="policy-card" id="privacy">
+                        <div class="policy-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Privacy Policy</h3>
+                        <p>We are committed to protecting your privacy and ensuring the security of your personal information. Our privacy policy explains how we collect, use, and protect your data.</p>
+                        <a href="#" class="btn">Read Privacy Policy</a>
+                    </div>
+                    
+                    <div class="policy-card" id="terms">
+                        <div class="policy-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3>Terms & Conditions</h3>
+                        <p>Please read these terms carefully before using our website and services. By accessing our site, you agree to be bound by these terms and conditions.</p>
+                        <a href="#" class="btn">Read Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#categories">Assignment Categories</a></li>
+                            <li><a href="#about">About AIOU</a></li>
+                            <li><a href="#how-to">How to Submit</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Programs</h3>
+                        <ul>
+                            <li><a href="#">Matric (SSC)</a></li>
+                            <li><a href="#">FA / FSc</a></li>
+                            <li><a href="#">BA / BSc</a></li>
+                            <li><a href="#">B.Ed Programs</a></li>
+                            <li><a href="#">BS Programs</a></li>
+                            <li><a href="#">BBA / B.Com</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Policies</h3>
+                        <ul>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms & Conditions</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Copyright</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Past Papers</a></li>
+                            <li><a href="#">Books & Notes</a></li>
+                            <li><a href="#">Tutor Information</a></li>
+                            <li><a href="#">Date Sheets</a></li>
+                            <li><a href="#">Results</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2025 AIOU Solved Assignments. All rights reserved.</p>
+                    <p>This website is not affiliated with Allama Iqbal Open University. It is an independent educational resource.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>AIOU Solved Assignments 2025 - Autumn & Spring</h1>
-            <p>Download free AIOU solved assignments for all programs. Get assignment solutions, past papers, and assignment covering forms for Matric, FA, BA, B.Com, B.Ed, BS, MA, MSc programs.</p>
-            <div class="hero-btns">
-                <a href="#categories" class="btn">Download Assignments</a>
-                <a href="#contact" class="btn btn-outline">Get Help</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <!-- Assignment Categories -->
-            <section id="categories">
-                <h2 class="section-title">AIOU Assignment Categories</h2>
-                <div class="categories-grid">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>Matric (SSC)</h3>
-                            <p>Download solved assignments for Matriculation programs including all subjects and courses.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>FA / FSc</h3>
-                            <p>Get solved assignments for FA (Faculty of Arts) and FSc (Faculty of Science) programs.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>BA / BSc</h3>
-                            <p>Download solved assignments for BA (Bachelor of Arts) and BSc (Bachelor of Science) programs.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>B.Ed Programs</h3>
-                            <p>Get solved assignments for B.Ed (Bachelor of Education) programs with complete solutions.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>BS Programs</h3>
-                            <p>Download solved assignments for BS (Bachelor of Studies) programs in various disciplines.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-business-time"></i>
-                        </div>
-                        <div class="category-content">
-                            <h3>BBA / B.Com</h3>
-                            <p>Get solved assignments for BBA (Business Administration) and B.Com (Commerce) programs.</p>
-                            <a href="#" class="btn">Download Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- About AIOU Section -->
-            <section class="content-section" id="about">
-                <h2>About Allama Iqbal Open University (AIOU)</h2>
-                <p>Allama Iqbal Open University (AIOU) is the first open university in Asia and the second in the world, established in 1974. It provides education to all segments of society, especially those who cannot attend traditional universities due to various constraints.</p>
-                
-                <h3>Why AIOU is Popular Among Students</h3>
-                <p>AIOU has become one of the largest universities in Pakistan with over 1.3 million students enrolled in various programs. The university offers:</p>
-                <ul>
-                    <li>Flexible learning options for working professionals</li>
-                    <li>Affordable education for all income groups</li>
-                    <li>Nationwide access through regional campuses</li>
-                    <li>Diverse programs from Matric to PhD levels</li>
-                    <li>Distance learning methodology</li>
-                </ul>
-                
-                <h3>AIOU Assignment System</h3>
-                <p>Assignments are a crucial part of AIOU's evaluation system, carrying 30% weightage in the final result. Students must submit assignments before the deadline to be eligible for final exams.</p>
-            </section>
-            
-            <!-- How to Submit Section -->
-            <section class="content-section" id="how-to">
-                <h2>How to Submit AIOU Assignments</h2>
-                <p>Submitting assignments correctly is essential for AIOU students. Follow these steps to ensure your assignments are accepted:</p>
-                
-                <h3>Step-by-Step Submission Process</h3>
-                <ol>
-                    <li><strong>Download Assignment Questions:</strong> First, download the assignment questions from the AIOU website or your course books.</li>
-                    <li><strong>Prepare Your Solutions:</strong> Use our solved assignments as a reference to create your own unique solutions.</li>
-                    <li><strong>Use Assignment Covering Form:</strong> Download and fill out the official AIOU assignment covering form with your personal and course details.</li>
-                    <li><strong>Submit Before Deadline:</strong> Submit your assignments to your respective AIOU regional center before the deadline.</li>
-                    <li><strong>Keep a Copy:</strong> Always keep a copy of your submitted assignments for future reference.</li>
-                </ol>
-                
-                <h3>Important Points to Remember</h3>
-                <ul>
-                    <li>Assignments must be handwritten (unless specified otherwise)</li>
-                    <li>Use A4 size paper for all assignments</li>
-                    <li>Write your name, roll number, and course code on each assignment</li>
-                    <li>Submit assignments in person or through registered mail</li>
-                    <li>Late submissions may not be accepted</li>
-                </ul>
-            </section>
-            
-            <!-- Contact Section -->
-            <section class="contact-section" id="contact">
-                <h2 class="section-title">Contact Us</h2>
-                <p class="text-center">Need help with your AIOU assignments? Contact our support team for assistance.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+92 355 8137077</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>info@aiouassignments.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Working Hours</h4>
-                            <p>Mon - Fri: 9AM - 6PM</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Policy Sections -->
-            <div class="policy-sections">
-                <div class="policy-card" id="privacy">
-                    <div class="policy-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Privacy Policy</h3>
-                    <p>We are committed to protecting your privacy and ensuring the security of your personal information. Our privacy policy explains how we collect, use, and protect your data.</p>
-                    <a href="#" class="btn">Read Privacy Policy</a>
-                </div>
-                
-                <div class="policy-card" id="terms">
-                    <div class="policy-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Terms & Conditions</h3>
-                    <p>Please read these terms carefully before using our website and services. By accessing our site, you agree to be bound by these terms and conditions.</p>
-                    <a href="#" class="btn">Read Terms & Conditions</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#categories">Assignment Categories</a></li>
-                        <li><a href="#about">About AIOU</a></li>
-                        <li><a href="#how-to">How to Submit</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Programs</h3>
-                    <ul>
-                        <li><a href="#">Matric (SSC)</a></li>
-                        <li><a href="#">FA / FSc</a></li>
-                        <li><a href="#">BA / BSc</a></li>
-                        <li><a href="#">B.Ed Programs</a></li>
-                        <li><a href="#">BS Programs</a></li>
-                        <li><a href="#">BBA / B.Com</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Policies</h3>
-                    <ul>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms & Conditions</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                        <li><a href="#">Copyright</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Past Papers</a></li>
-                        <li><a href="#">Books & Notes</a></li>
-                        <li><a href="#">Tutor Information</a></li>
-                        <li><a href="#">Date Sheets</a></li>
-                        <li><a href="#">Results</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 AIOU Solved Assignments. All rights reserved.</p>
-                <p>This website is not affiliated with Allama Iqbal Open University. It is an independent educational resource.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Mobile Navigation Toggle
         const mobileNavToggle = document.getElementById('mobileNavToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.getElementById('mobileNavClose');
-        const overlay = document.getElementById('overlay');
+        const sideNav = document.getElementById('sideNav');
         
-        function openMobileNav() {
-            mobileNav.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function toggleSideNav() {
+            sideNav.classList.toggle('active');
         }
         
-        function closeMobileNav() {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+        mobileNavToggle.addEventListener('click', toggleSideNav);
         
-        mobileNavToggle.addEventListener('click', openMobileNav);
-        mobileNavClose.addEventListener('click', closeMobileNav);
-        overlay.addEventListener('click', closeMobileNav);
-        
-        // Close mobile nav when clicking on a link
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileNav);
+        // Close side nav when clicking on a link (mobile)
+        const sideNavLinks = document.querySelectorAll('.side-nav-menu a');
+        sideNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sideNav.classList.remove('active');
+                }
+            });
         });
         
         // Smooth scrolling for anchor links
@@ -975,7 +999,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
