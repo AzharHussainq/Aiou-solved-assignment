@@ -594,6 +594,43 @@
             transition: all 0.3s ease;
         }
         
+        /* Additional Hyperlink Styles */
+        .content-section a, .contact-details a {
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px dotted var(--primary-brown);
+        }
+        
+        .content-section a:hover, .contact-details a:hover {
+            color: var(--light-brown);
+            border-bottom: 1px solid var(--light-brown);
+        }
+        
+        .program-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .program-link {
+            background: var(--cream);
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-brown);
+        }
+        
+        .program-link:hover {
+            background: var(--primary-brown);
+            color: var(--white);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .side-nav {
@@ -790,7 +827,7 @@
                             <div class="category-content">
                                 <h3>Matric (SSC)</h3>
                                 <p>Download solved assignments for Matriculation programs including all subjects and courses.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="matric-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                         
@@ -801,7 +838,7 @@
                             <div class="category-content">
                                 <h3>FA / FSc</h3>
                                 <p>Get solved assignments for FA (Faculty of Arts) and FSc (Faculty of Science) programs.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="fa-fsc-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                         
@@ -812,7 +849,7 @@
                             <div class="category-content">
                                 <h3>BA / BSc</h3>
                                 <p>Download solved assignments for BA (Bachelor of Arts) and BSc (Bachelor of Science) programs.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="ba-bsc-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                         
@@ -823,7 +860,7 @@
                             <div class="category-content">
                                 <h3>B.Ed Programs</h3>
                                 <p>Get solved assignments for B.Ed (Bachelor of Education) programs with complete solutions.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="bed-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                         
@@ -834,7 +871,7 @@
                             <div class="category-content">
                                 <h3>BS Programs</h3>
                                 <p>Download solved assignments for BS (Bachelor of Studies) programs in various disciplines.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="bs-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                         
@@ -845,7 +882,7 @@
                             <div class="category-content">
                                 <h3>BBA / B.Com</h3>
                                 <p>Get solved assignments for BBA (Business Administration) and B.Com (Commerce) programs.</p>
-                                <a href="#" class="btn">Download Now</a>
+                                <a href="bba-bcom-assignments.html" class="btn">Download Now</a>
                             </div>
                         </div>
                     </div>
@@ -862,12 +899,21 @@
                         <li>Flexible learning options for working professionals</li>
                         <li>Affordable education for all income groups</li>
                         <li>Nationwide access through regional campuses</li>
-                        <li>Diverse programs from Matric to PhD levels</li>
+                        <li>Diverse programs from <a href="matric-assignments.html">Matric</a> to PhD levels</li>
                         <li>Distance learning methodology</li>
                     </ul>
                     
                     <h3>AIOU Assignment System</h3>
                     <p>Assignments are a crucial part of AIOU's evaluation system, carrying 30% weightage in the final result. Students must submit assignments before the deadline to be eligible for final exams.</p>
+                    
+                    <div class="program-links">
+                        <a href="matric-assignments.html" class="program-link">Matric Assignments</a>
+                        <a href="fa-fsc-assignments.html" class="program-link">FA/FSc Assignments</a>
+                        <a href="ba-bsc-assignments.html" class="program-link">BA/BSc Assignments</a>
+                        <a href="bed-assignments.html" class="program-link">B.Ed Assignments</a>
+                        <a href="bs-assignments.html" class="program-link">BS Assignments</a>
+                        <a href="bba-bcom-assignments.html" class="program-link">BBA/B.Com Assignments</a>
+                    </div>
                 </section>
                 
                 <!-- How to Submit Section -->
@@ -877,9 +923,9 @@
                     
                     <h3>Step-by-Step Submission Process</h3>
                     <ol>
-                        <li><strong>Download Assignment Questions:</strong> First, download the assignment questions from the AIOU website or your course books.</li>
-                        <li><strong>Prepare Your Solutions:</strong> Use our solved assignments as a reference to create your own unique solutions.</li>
-                        <li><strong>Use Assignment Covering Form:</strong> Download and fill out the official AIOU assignment covering form with your personal and course details.</li>
+                        <li><strong>Download Assignment Questions:</strong> First, download the assignment questions from the <a href="https://aiou.edu.pk" target="_blank">AIOU website</a> or your course books.</li>
+                        <li><strong>Prepare Your Solutions:</strong> Use our <a href="#categories">solved assignments</a> as a reference to create your own unique solutions.</li>
+                        <li><strong>Use Assignment Covering Form:</strong> Download and fill out the official <a href="assignment-covering-form.pdf" target="_blank">AIOU assignment covering form</a> with your personal and course details.</li>
                         <li><strong>Submit Before Deadline:</strong> Submit your assignments to your respective AIOU regional center before the deadline.</li>
                         <li><strong>Keep a Copy:</strong> Always keep a copy of your submitted assignments for future reference.</li>
                     </ol>
@@ -892,6 +938,8 @@
                         <li>Submit assignments in person or through registered mail</li>
                         <li>Late submissions may not be accepted</li>
                     </ul>
+                    
+                    <p>Need help? <a href="#contact">Contact our support team</a> for assistance with your assignments.</p>
                 </section>
                 
                 <!-- Contact Section -->
@@ -939,7 +987,7 @@
                         </div>
                         <h3>Privacy Policy</h3>
                         <p>We are committed to protecting your privacy and ensuring the security of your personal information. Our privacy policy explains how we collect, use, and protect your data.</p>
-                        <a href="#" class="btn">Read Privacy Policy</a>
+                        <a href="privacy-policy.html" class="btn">Read Privacy Policy</a>
                     </div>
                     
                     <div class="policy-card" id="terms">
@@ -948,7 +996,7 @@
                         </div>
                         <h3>Terms & Conditions</h3>
                         <p>Please read these terms carefully before using our website and services. By accessing our site, you agree to be bound by these terms and conditions.</p>
-                        <a href="#" class="btn">Read Terms & Conditions</a>
+                        <a href="terms-conditions.html" class="btn">Read Terms & Conditions</a>
                     </div>
                 </div>
             </div>
@@ -972,33 +1020,33 @@
                     <div class="footer-section">
                         <h3>Programs</h3>
                         <ul>
-                            <li><a href="#">Matric (SSC)</a></li>
-                            <li><a href="#">FA / FSc</a></li>
-                            <li><a href="#">BA / BSc</a></li>
-                            <li><a href="#">B.Ed Programs</a></li>
-                            <li><a href="#">BS Programs</a></li>
-                            <li><a href="#">BBA / B.Com</a></li>
+                            <li><a href="matric-assignments.html">Matric (SSC)</a></li>
+                            <li><a href="fa-fsc-assignments.html">FA / FSc</a></li>
+                            <li><a href="ba-bsc-assignments.html">BA / BSc</a></li>
+                            <li><a href="bed-assignments.html">B.Ed Programs</a></li>
+                            <li><a href="bs-assignments.html">BS Programs</a></li>
+                            <li><a href="bba-bcom-assignments.html">BBA / B.Com</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h3>Policies</h3>
                         <ul>
-                            <li><a href="#privacy">Privacy Policy</a></li>
-                            <li><a href="#terms">Terms & Conditions</a></li>
-                            <li><a href="#">Disclaimer</a></li>
-                            <li><a href="#">Copyright</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="disclaimer.html">Disclaimer</a></li>
+                            <li><a href="copyright.html">Copyright</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h3>Resources</h3>
                         <ul>
-                            <li><a href="#">Past Papers</a></li>
-                            <li><a href="#">Books & Notes</a></li>
-                            <li><a href="#">Tutor Information</a></li>
-                            <li><a href="#">Date Sheets</a></li>
-                            <li><a href="#">Results</a></li>
+                            <li><a href="past-papers.html">Past Papers</a></li>
+                            <li><a href="books-notes.html">Books & Notes</a></li>
+                            <li><a href="tutor-info.html">Tutor Information</a></li>
+                            <li><a href="date-sheets.html">Date Sheets</a></li>
+                            <li><a href="results.html">Results</a></li>
                         </ul>
                     </div>
                 </div>
