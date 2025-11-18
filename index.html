@@ -75,7 +75,6 @@
             background-color: var(--light-gray);
             color: var(--text-dark);
             line-height: 1.6;
-            display: flex;
         }
         
         .container {
@@ -85,133 +84,92 @@
             padding: 0 20px;
         }
         
-        /* Left Side Navigation */
-        .side-nav {
-            width: 280px;
-            background: linear-gradient(180deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
-            color: var(--white);
-            height: 100vh;
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
             position: fixed;
-            left: 0;
             top: 0;
-            overflow-y: auto;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
             z-index: 1000;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .side-nav-header {
-            padding: 25px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            position: relative;
+        .mobile-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
         }
         
-        .side-nav-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .mobile-nav-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav-logo i {
+            margin-right: 10px;
+        }
+        
+        .mobile-nav-toggle {
             background: none;
             border: none;
             color: var(--white);
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
-            display: none;
         }
         
-        .side-nav-logo {
-            font-size: 22px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .mobile-menu {
+            display: none;
+            background: linear-gradient(180deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            padding: 20px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu li {
             margin-bottom: 10px;
         }
         
-        .side-nav-logo i {
-            margin-right: 10px;
-            font-size: 26px;
-        }
-        
-        .side-nav-tagline {
-            font-size: 14px;
-            color: var(--cream);
-        }
-        
-        .side-nav-menu {
-            list-style: none;
-            padding: 20px 0;
-        }
-        
-        .side-nav-menu li {
-            margin-bottom: 5px;
-            position: relative;
-        }
-        
-        .side-nav-menu a {
+        .mobile-menu a {
             display: flex;
             align-items: center;
             color: var(--white);
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 12px 15px;
+            border-radius: 5px;
             transition: all 0.3s ease;
-            border-left: 3px solid transparent;
         }
         
-        .side-nav-menu a:hover, .side-nav-menu a.active {
+        .mobile-menu a:hover, .mobile-menu a.active {
             background: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid var(--cream);
         }
         
-        .side-nav-menu i {
+        .mobile-menu i {
             margin-right: 12px;
             font-size: 18px;
             width: 20px;
             text-align: center;
         }
         
-        .side-nav-contact {
-            padding: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .side-nav-contact h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: var(--cream);
-        }
-        
-        .side-nav-contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .side-nav-contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .side-nav-contact-item i {
-            margin-right: 10px;
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .side-nav-contact-item a {
-            color: var(--white);
-            text-decoration: none;
-        }
-        
         /* Main Content Area */
         .main-content {
-            flex: 1;
-            margin-left: 280px;
-            transition: all 0.3s ease;
+            width: 100%;
         }
         
         /* Header */
@@ -220,29 +178,18 @@
             color: var(--white);
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 900;
         }
         
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-        
-        .mobile-nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 24px;
-            cursor: pointer;
         }
         
         .page-title {
             font-size: 24px;
             font-weight: 600;
+            text-align: center;
         }
         
         /* Breadcrumb */
@@ -583,18 +530,6 @@
             color: var(--cream);
         }
         
-        /* Navigation Indicator Line */
-        .nav-indicator {
-            position: fixed;
-            left: 280px;
-            top: 0;
-            height: 100vh;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary-brown), var(--light-brown));
-            z-index: 800;
-            transition: all 0.3s ease;
-        }
-        
         /* Additional Hyperlink Styles */
         .content-section a, .contact-details a {
             color: var(--primary-brown);
@@ -634,18 +569,6 @@
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .side-nav {
-                width: 250px;
-            }
-            
-            .main-content {
-                margin-left: 250px;
-            }
-            
-            .nav-indicator {
-                left: 250px;
-            }
-            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -656,37 +579,8 @@
         }
         
         @media (max-width: 768px) {
-            .side-nav {
-                transform: translateX(-100%);
-            }
-            
-            .side-nav.active {
-                transform: translateX(0);
-            }
-            
-            .side-nav-close {
+            .mobile-nav {
                 display: block;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .nav-indicator {
-                display: none;
-            }
-            
-            .mobile-nav-toggle {
-                display: block;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .page-title {
-                margin: 10px 0;
             }
             
             .hero {
@@ -737,46 +631,27 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Indicator Line -->
-    <div class="nav-indicator"></div>
-
-    <!-- Left Side Navigation -->
-    <nav class="side-nav" id="sideNav">
-        <div class="side-nav-header">
-            <button class="side-nav-close" id="sideNavClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="side-nav-logo">
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-logo">
                 <i class="fas fa-graduation-cap"></i>
                 AIOU Assignments
             </div>
-            <div class="side-nav-tagline">Your Educational Resource</div>
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        
-        <ul class="side-nav-menu">
-            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#categories"><i class="fas fa-book"></i> Assignment Categories</a></li>
-            <li><a href="#about"><i class="fas fa-university"></i> About AIOU</a></li>
-            <li><a href="#how-to"><i class="fas fa-pen-alt"></i> How to Submit</a></li>
-            <li><a href="#contact"><i class="fas fa-phone"></i> Contact Us</a></li>
-            <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-            <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
-        </ul>
-        
-        <div class="side-nav-contact">
-            <h3>Contact Support</h3>
-            <div class="side-nav-contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <a href="https://wa.me/923558137077" target="_blank">WhatsApp Support</a>
-            </div>
-            <div class="side-nav-contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:azarhussin44@gmail.com">azarhussin44@gmail.com</a>
-            </div>
-            <div class="side-nav-contact-item">
-                <i class="fas fa-clock"></i>
-                <span>Mon - Fri: 9AM - 6PM</span>
-            </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#categories"><i class="fas fa-book"></i> Assignment Categories</a></li>
+                <li><a href="#about"><i class="fas fa-university"></i> About AIOU</a></li>
+                <li><a href="#how-to"><i class="fas fa-pen-alt"></i> How to Submit</a></li>
+                <li><a href="#contact"><i class="fas fa-phone"></i> Contact Us</a></li>
+                <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                <li><a href="#terms"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -786,11 +661,7 @@
         <header>
             <div class="container">
                 <div class="header-content">
-                    <button class="mobile-nav-toggle" id="mobileNavToggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
                     <div class="page-title">AIOU Solved Assignments 2025</div>
-                    <div></div> <!-- Empty div for flex alignment -->
                 </div>
             </div>
         </header>
@@ -1013,17 +884,6 @@
                             <li><a href="copyright.html">Copyright</a></li>
                         </ul>
                     </div>
-                    
-                    <div class="footer-section">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="past-papers.html">Past Papers</a></li>
-                            <li><a href="books-notes.html">Books & Notes</a></li>
-                            <li><a href="tutor-info.html">Tutor Information</a></li>
-                            <li><a href="date-sheets.html">Date Sheets</a></li>
-                            <li><a href="results.html">Results</a></li>
-                        </ul>
-                    </div>
                 </div>
                 
                 <div class="copyright">
@@ -1037,23 +897,19 @@
     <script>
         // Mobile Navigation Toggle
         const mobileNavToggle = document.getElementById('mobileNavToggle');
-        const sideNav = document.getElementById('sideNav');
-        const sideNavClose = document.getElementById('sideNavClose');
+        const mobileMenu = document.getElementById('mobileMenu');
         
-        function toggleSideNav() {
-            sideNav.classList.toggle('active');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
         }
         
-        mobileNavToggle.addEventListener('click', toggleSideNav);
-        sideNavClose.addEventListener('click', toggleSideNav);
+        mobileNavToggle.addEventListener('click', toggleMobileMenu);
         
-        // Close side nav when clicking on a link (mobile)
-        const sideNavLinks = document.querySelectorAll('.side-nav-menu a');
-        sideNavLinks.forEach(link => {
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+        mobileMenuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    sideNav.classList.remove('active');
-                }
+                mobileMenu.classList.remove('active');
             });
         });
         
