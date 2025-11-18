@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Code Assignments - AIOU Solved Assignments 2025</title>
+    <title>All Course Code Assignments - AIOU Solved Assignments 2025</title>
     <meta name="description" content="Download AIOU solved assignments for all course codes. Get assignment solutions for all programs including BA, B.Com, B.Ed, BS, MA, MSc.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -136,61 +136,62 @@
             font-size: 1.8rem;
         }
         
-        /* Course Code Grid */
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
+        /* Assignment Table */
+        .assignment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
         }
         
-        .course-card {
-            background: var(--white);
-            border-radius: 8px;
+        .assignment-table th {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--light-brown) 100%);
+            color: var(--white);
             padding: 15px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--cream);
-            transition: all 0.3s ease;
+            font-weight: 600;
         }
         
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .assignment-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--cream);
+            text-align: center;
+        }
+        
+        .assignment-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .assignment-table tr:hover {
+            background-color: rgba(139, 69, 19, 0.05);
         }
         
         .course-code {
             font-weight: 600;
             color: var(--primary-brown);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
         }
         
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--light-brown) 100%);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 5px;
+        .download-link {
+            color: var(--light-brown);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
         
-        .download-btn:hover {
+        .download-link:hover {
+            color: var(--primary-brown);
+            background-color: rgba(139, 69, 19, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         .buy-btn {
             display: inline-block;
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: var(--white);
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 5px 10px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -344,10 +345,6 @@
             .page-title {
                 font-size: 1.8rem;
             }
-            
-            .course-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            }
         }
         
         @media (max-width: 768px) {
@@ -358,6 +355,11 @@
             
             .logo {
                 margin-bottom: 10px;
+            }
+            
+            .assignment-table {
+                display: block;
+                overflow-x: auto;
             }
             
             .footer-content {
@@ -374,13 +376,10 @@
                 padding: 20px;
             }
             
-            .course-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 10px;
-            }
-            
-            .course-card {
-                padding: 10px;
+            .assignment-table th, 
+            .assignment-table td {
+                padding: 8px 10px;
+                font-size: 14px;
             }
         }
     </style>
@@ -430,10 +429,21 @@
             <div class="canvas-container">
                 <h2 class="canvas-title">Course Code Assignment Solutions</h2>
                 
-                <!-- Course Code Grid -->
-                <div class="course-grid" id="all-courses">
-                    <!-- Course codes will be inserted here by JavaScript -->
-                </div>
+                <!-- Assignment Table -->
+                <table class="assignment-table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Assignment 1</th>
+                            <th>Assignment 2</th>
+                            <th>Assignment 3</th>
+                            <th>Assignment 4</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course-table-body">
+                        <!-- Course codes will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
                 
                 <!-- Instructions Section -->
                 <div class="instructions">
@@ -637,45 +647,65 @@
 
         // Function to check if a course code is in the free download range
         function isFreeCourse(code) {
-            // Convert code to number if possible
-            const numCode = parseInt(code);
+            // Extract numeric part from code
+            const numMatch = code.match(/\d+/);
+            if (!numMatch) return false;
+            
+            const numCode = parseInt(numMatch[0]);
             
             // Check if it's in the free ranges
-            if (!isNaN(numCode)) {
-                if ((numCode >= 402 && numCode <= 487) || (numCode >= 1413 && numCode <= 1431)) {
-                    return true;
-                }
+            if ((numCode >= 402 && numCode <= 487) || (numCode >= 1413 && numCode <= 1431)) {
+                return true;
             }
             
             return false;
         }
 
-        // Function to render course cards
-        function renderCourseCards() {
-            const courseGrid = document.getElementById('all-courses');
-            courseGrid.innerHTML = '';
+        // Function to render course table
+        function renderCourseTable() {
+            const tableBody = document.getElementById('course-table-body');
+            tableBody.innerHTML = '';
             
             courseCodes.forEach(code => {
                 const isFree = isFreeCourse(code);
                 
-                const courseCard = document.createElement('div');
-                courseCard.className = 'course-card';
+                const row = document.createElement('tr');
                 
-                courseCard.innerHTML = `
-                    <div class="course-code">${code}</div>
-                    ${isFree ? 
-                        '<a href="#" class="download-btn">Download</a>' : 
-                        '<a href="https://wa.me/923558137077" target="_blank" class="buy-btn">Buy Now</a>'
-                    }
+                row.innerHTML = `
+                    <td class="course-code">${code}</td>
+                    <td>
+                        ${isFree ? 
+                            '<a href="#" class="download-link">Download</a>' : 
+                            '<a href="https://wa.me/923558137077" target="_blank" class="buy-btn">Buy Now</a>'
+                        }
+                    </td>
+                    <td>
+                        ${isFree ? 
+                            '<a href="#" class="download-link">Download</a>' : 
+                            '<a href="https://wa.me/923558137077" target="_blank" class="buy-btn">Buy Now</a>'
+                        }
+                    </td>
+                    <td>
+                        ${isFree ? 
+                            '<a href="#" class="download-link">Download</a>' : 
+                            '<a href="https://wa.me/923558137077" target="_blank" class="buy-btn">Buy Now</a>'
+                        }
+                    </td>
+                    <td>
+                        ${isFree ? 
+                            '<a href="#" class="download-link">Download</a>' : 
+                            '<a href="https://wa.me/923558137077" target="_blank" class="buy-btn">Buy Now</a>'
+                        }
+                    </td>
                 `;
                 
-                courseGrid.appendChild(courseCard);
+                tableBody.appendChild(row);
             });
         }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            renderCourseCards();
+            renderCourseTable();
             
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
